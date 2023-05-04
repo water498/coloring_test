@@ -1,8 +1,13 @@
 package com.example.coloringtest.util
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Path
+import android.graphics.Point
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.WindowManager
+import com.example.coloringtest.model.getMaskAtPoint
 
 object DeviceUtils {
 
@@ -22,5 +27,7 @@ object DeviceUtils {
             windowManager.defaultDisplay.getMetrics(displayMetrics)
             return displayMetrics.heightPixels
         }
+
+
 
 }

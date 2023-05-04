@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.coloringtest.databinding.FragmentFirstBinding
 import com.example.coloringtest.util.BitmapUtils
 import com.example.coloringtest.util.ColoringView
+import com.example.coloringtest.util.DeviceUtils
 import com.example.coloringtest.util.DialogUtils
 import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
@@ -86,8 +87,13 @@ private var _binding: FragmentFirstBinding? = null
         }
 
         binding.loadImage.setOnClickListener {
-            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.image2) // 비트맵으로 변환
-            val resizeBitmap = BitmapUtils.resizeBitmap(bitmap, 1000, 1000)
+            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.sister_image1) // 비트맵으로 변환
+            val resizeBitmap = BitmapUtils
+                .resizeBitmap(
+                    bitmap
+                    , DeviceUtils.getScreenWidth(requireContext())
+                    , DeviceUtils.getScreenHeight(requireContext())
+                )
             binding.coloringView.setImageBitmap(resizeBitmap) // ColoringView에 이미지 설정
         }
 
